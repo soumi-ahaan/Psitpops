@@ -7,7 +7,7 @@
     font-family: "DM Sans", sans-serif;
 }
 .animate-slide{
-animation: slide 9s infinite;
+animation: slide 16s infinite;
 }
 
 @keyframes slide {
