@@ -4,7 +4,10 @@ async function loadComponent(id, file) {
 
   // If element does not exist on this page → skip
   if (!element) return;
-
+ 
+  // If element does not exist on this page → skip
+  if (!element) return;
+ 
   try {
     const res = await fetch(file);
     const html = await res.text();
@@ -13,7 +16,7 @@ async function loadComponent(id, file) {
     console.error(`Error loading component: ${file}`, err);
   }
 }
-
+ 
 // Load all components
 async function initPage() {
   await loadComponent("announcement", "/layouts/home/announcement.html");
@@ -22,7 +25,13 @@ async function initPage() {
 
   await loadComponent("banner", "/layouts/home/banner.html");
 
+
   await loadComponent("topicBanner", "/layouts/topic/topic-banner.html");
+  await loadComponent("contact-banner", "/layouts/contact/contact-banner.html");
+
+  await loadComponent("contact-cards", "/layouts/contact/contact-cards.html");
+
+   await loadComponent("contact-gridform", "/layouts/contact/contact-gridform.html");
 
   await loadComponent("floating", "/layouts/home/floating.html");
 
@@ -38,16 +47,20 @@ async function initPage() {
 
   await loadComponent("footer", "/components/footer.html");
 
+
   // Run header JS after header loads
   if (typeof initHeader === "function") {
     initHeader();
   }
-
   // Run blog API if exists
   if (typeof initBlog === "function") {
     initBlog();
   }
 }
 
+
+ 
 // Initialize page
 document.addEventListener("DOMContentLoaded", initPage);
+ 
+ 
