@@ -46,6 +46,8 @@ async function initPage() {
   await loadComponent("relatedBlogs", "/layouts/blog-details/related-blogs.html");
 
   await loadComponent("footer", "/components/footer.html");
+     await loadComponent("explore", "/layouts/blog/explore.html");
+   await loadComponent("blog-banner", "/layouts/blog/banner.html");
 
 
   // Run header JS after header loads
@@ -56,11 +58,15 @@ async function initPage() {
   if (typeof initBlog === "function") {
     initBlog();
   }
+    if (typeof initTopicsOnly === "function") {
+    initTopicsOnly();
+  }
+  if(typeof initTopicSlider==="function"){
+    initTopicSlider()
+  }
 }
 
 
  
 // Initialize page
 document.addEventListener("DOMContentLoaded", initPage);
- 
- 
