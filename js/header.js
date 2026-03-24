@@ -4,6 +4,8 @@ function initHeader() {
   const mobileBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const links = document.querySelectorAll(".nav-link");
+   const overlay = document.getElementById("menu-overlay");
+  const closeBtn = document.getElementById("close-menu");
 
   // AUTO ACTIVE NAV
   const currentPath = window.location.pathname;
@@ -47,10 +49,16 @@ function initHeader() {
 }
 
   // MOBILE MENU
-  if (mobileBtn && mobileMenu) {
-    mobileBtn.onclick = () => {
-      mobileMenu.classList.toggle("hidden");
-    };
+
+  function toggleMenu() {
+    mobileMenu.classList.toggle("translate-x-full");
+    overlay.classList.toggle("hidden");
+  }
+
+  if (mobileBtn && mobileMenu && overlay && closeBtn) {
+    mobileBtn.addEventListener("click", toggleMenu);
+    closeBtn.addEventListener("click", toggleMenu);
+    overlay.addEventListener("click", toggleMenu);
   }
 }
 
